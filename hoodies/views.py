@@ -10,14 +10,17 @@ class PageListView(ListView):
     
     def get(self, request):
         hoodies = self.get_queryset().all()
-        return render(request, 'hoodies/list.html', {"hoodies": hoodies})
+        return render(request, 'hoodies/hoodies_list.html', {"hoodies": hoodies})
     
     
     
 def hoodie_index(request):
     hoodies_list = Hoodie.objects.all()
     context = {"hoodies_list": hoodies_list,}
-    template = loader.get_template('recipes/index.html')
+    template = loader.get_template('hoodies/hoodies_index.html')
     
     return HttpResponse(template.render(context, request))
     
+    
+    
+class PageDetailView(DetailView):

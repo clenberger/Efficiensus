@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from hoodies.views import PageListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('hoodies/', PageListView.as_view(), name="hoodies-list")
 ]
